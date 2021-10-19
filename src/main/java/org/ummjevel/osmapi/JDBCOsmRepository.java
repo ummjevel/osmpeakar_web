@@ -100,9 +100,9 @@ public class JDBCOsmRepository implements OsmRepository {
     public List<OsmVO> findByNameForList(String name) {
         return jdbcTemplate.query("select fid, osm_id, \"natural\", \"name:en\", lat, long from planet_osm_point " +
                         "where lat between (select lat from planet_osm_point where \"name:en\" = ?) - 0.1 " +
-                        "and (select lat from planet_osm_point where \"name:en\" = ?) + 0.1" +
+                        "and (select lat from planet_osm_point where \"name:en\" = ?) + 0.1 " +
                         "and long between (select long from planet_osm_point where \"name:en\" = ?) - 0.1 " +
-                        "and (select long from planet_osm_point where \"name:en\" = ?) + 0.1  and \"name:en\" is not null" +
+                        "and (select long from planet_osm_point where \"name:en\" = ?) + 0.1  and \"name:en\" is not null " +
                         "order by lat asc, long asc;"
                 , new Object[] {name, name, name, name}
                 , (rs, rowNum) -> new OsmVO(

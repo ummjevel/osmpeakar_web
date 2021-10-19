@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  app:
+    container_name: osmapi
+    image: osmapi
+    build: ./
+    # environment:
+    #  SPRING_DATASOURCE_URL: jdbc:log4jdbc:postgresql://dbpostgresql:5432/osm
+    ports:
+      - "9000:9000"
+    depends_on:
+      - dbpostgresql
+  dbpostgresql:
+    image: kartoza/postgis # postgis/postgis postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=P@ssw0rd
+      - POSTGRES_USER=test
+      - POSTGRES_DB=osm
+      - PASSWORD_AUTHENTICATION=md5
+      - DEFAULT_ENCODING=UTF8
+    volumes:
+    #  - ./postgres/postgresql.conf:/etc/postgresql/13/main/postgresql.conf
+    #  - ./postgres/pg_hba.conf:/etc/postgresql/13/main/pg_hba.conf
+      - ./postgres/postgres-data:/var/lib/postgresql/data
+    # command: kartoza/postgis -c config_file=/etc/postgresql/13/main/postgresql.conf
