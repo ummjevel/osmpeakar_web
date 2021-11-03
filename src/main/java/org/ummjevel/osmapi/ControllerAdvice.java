@@ -15,6 +15,7 @@ public class ControllerAdvice {
 
         resBody.put("result", e.getResult());
         resBody.put("message", e.getMessage());
+        resBody.put("body", "");
 
         return new ResponseEntity<>(resBody, e.getStatus());
     }
