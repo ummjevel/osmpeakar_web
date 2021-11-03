@@ -39,7 +39,7 @@ public class OsmController {
             if (!listTop5.isEmpty()) {
                 restReturn = new RestReturn("OK", listTop5, "");
             } else {
-                throw new RestException(HttpStatus.NO_CONTENT, "NO_CONTENT", "top 5 is empty.");
+                throw new RestException(HttpStatus.CREATED, "CREATED", "top 5 is empty.");
             }
         } catch(RestException e) {
             throw new RestException(e.getStatus(), e.getResult(), e.getMessage());
@@ -60,7 +60,7 @@ public class OsmController {
 
                 restReturn = new RestReturn("OK", listByFid, "");
             } else {
-                throw new RestException(HttpStatus.NO_CONTENT, "NO_CONTENT", "Can't find fid is " + Integer.toString(fid) + ".");
+                throw new RestException(HttpStatus.CREATED, "CREATED", "Can't find fid is " + Integer.toString(fid) + ".");
             }
         } catch(RestException e) {
             throw new RestException(e.getStatus(), e.getResult(), e.getMessage());
@@ -78,7 +78,7 @@ public class OsmController {
             if (!listByOsmid.isEmpty()) {
                 restReturn = new RestReturn("OK", listByOsmid, "");
             } else {
-                throw new RestException(HttpStatus.NO_CONTENT, "NO_CONTENT", "Can't find osmid is " + Long.toString(osmid) + ".");
+                throw new RestException(HttpStatus.CREATED, "CREATED", "Can't find osmid is " + Long.toString(osmid) + ".");
             }
         } catch(RestException e) {
             throw new RestException(e.getStatus(), e.getResult(), e.getMessage());
@@ -96,7 +96,7 @@ public class OsmController {
             if (!listByName.isEmpty()) {
                 restReturn = new RestReturn("OK", listByName, "");
             } else {
-                throw new RestException(HttpStatus.NO_CONTENT, "NO_CONTENT", "Can't find name is " + name + ".");
+                throw new RestException(HttpStatus.CREATED, "CREATED", "Can't find name is " + name + ".");
             }
         } catch(RestException e) {
             throw new RestException(e.getStatus(), e.getResult(), e.getMessage());
@@ -114,7 +114,7 @@ public class OsmController {
             if (!listByLatLon.isEmpty()) {
                 restReturn = new RestReturn("OK", listByLatLon, "");
             } else {
-                throw new RestException(HttpStatus.NO_CONTENT, "NO_CONTENT", "Can't find (latitude, longitude) is (" + Double.toString(lat) + ", " + Double.toString(lon) + ").");
+                throw new RestException(HttpStatus.CREATED, "CREATED", "Can't find (latitude, longitude) is (" + Double.toString(lat) + ", " + Double.toString(lon) + ").");
             }
         } catch(RestException e) {
             throw new RestException(e.getStatus(), e.getResult(), e.getMessage());
@@ -134,7 +134,7 @@ public class OsmController {
             if (!listByLatLonStr.isEmpty()) {
                 restReturn = new RestReturn("OK", listByLatLonStr, "");
             } else {
-                throw new RestException(HttpStatus.NO_CONTENT, "NO_CONTENT", "Can't find (latitude, longitude) is (" + lat + ", " + lon + ").");
+                throw new RestException(HttpStatus.CREATED, "CREATED", "Can't find (latitude, longitude) is (" + lat + ", " + lon + ").");
             }
         } catch(RestException e) {
             throw new RestException(e.getStatus(), e.getResult(), e.getMessage());
@@ -152,9 +152,11 @@ public class OsmController {
             if (!listByLatLon.isEmpty()) {
                 restReturn = new RestReturn("OK", listByLatLon, "");
             } else {
-                throw new RestException(HttpStatus.NO_CONTENT, "NO_CONTENT", "Can't find (latitude, longitude) is (" + Double.toString(lat) + ", " + Double.toString(lon) + ").");
+                System.out.println("no content...");
+                throw new RestException(HttpStatus.CREATED, "CREATED", "Can't find (latitude, longitude) is (" + Double.toString(lat) + ", " + Double.toString(lon) + ").");
             }
         } catch(RestException e) {
+            System.out.println("this is exception...");
             throw new RestException(e.getStatus(), e.getResult(), e.getMessage());
         } catch (Exception e) {
             throw new RestException(HttpStatus.INTERNAL_SERVER_ERROR, "ERROR", "server error");
@@ -170,7 +172,7 @@ public class OsmController {
             if (!listByName.isEmpty()) {
                 restReturn = new RestReturn("OK", listByName, "");
             } else {
-                throw new RestException(HttpStatus.NO_CONTENT, "NO_CONTENT", "Can't find name is " + name + ".");
+                throw new RestException(HttpStatus.CREATED, "CREATED", "Can't find name is " + name + ".");
             }
         } catch(RestException e) {
             throw new RestException(e.getStatus(), e.getResult(), e.getMessage());
