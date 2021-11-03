@@ -8,11 +8,13 @@ public class RestException extends RuntimeException {
     private HttpStatus status;
     private String result;
     private String message;
+    private String body;
 
     public RestException(HttpStatus status, String result, String message) {
         this.status = status;
         this.result = result;
         this.message = message;
+        this.body = "";
     }
 
     public HttpStatus getStatus() {
@@ -34,4 +36,13 @@ public class RestException extends RuntimeException {
     public String getResult() {
         return result;
     }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
 }
