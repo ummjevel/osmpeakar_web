@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.sql.Array;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,7 +16,7 @@ public class ControllerAdvice {
 
         resBody.put("result", e.getResult());
         resBody.put("message", e.getMessage());
-        resBody.put("body", "");
+        resBody.put("body", new Array[0]);
 
         return new ResponseEntity<>(resBody, e.getStatus());
     }
