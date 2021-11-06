@@ -13,17 +13,19 @@ public class OsmVO {
     private Long osm_id;
     private String natural;
     private String name_en;
+    private String name_ko;
     private double lat;
     private double lon;
 
     public OsmVO() {
     }
 
-    public OsmVO(Integer fid, Long osm_id, String natural, String name_en, double lat, double lon) {
+    public OsmVO(Integer fid, Long osm_id, String natural, String name_en, String name_ko, double lat, double lon) {
         this.fid = fid;
         this.osm_id = osm_id;
         this.natural = natural;
         this.name_en = name_en;
+        this.name_ko = name_ko;
         this.lat = lat;
         this.lon = lon;
     }
@@ -60,6 +62,14 @@ public class OsmVO {
         this.name_en = name_en;
     }
 
+    public String getName_ko() {
+        return name_ko;
+    }
+
+    public void setName_ko(String name_ko) {
+        this.name_ko = name_ko;
+    }
+
     public double getLat() {
         return lat;
     }
@@ -78,7 +88,7 @@ public class OsmVO {
 
     @Override
     public String toString() {
-        return "OsmVO [fid=" + fid + ", osm_id=" + osm_id + ", name_en=" + name_en + ", natural=" + natural + ", lat="
+        return "OsmVO [fid=" + fid + ", osm_id=" + osm_id + ", name_en=" + name_en + ", name_ko=" + name_ko + ", natural=" + natural + ", lat="
                 + lat + ", lon=" + lon + "]";
     }
 }

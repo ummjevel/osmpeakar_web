@@ -20,4 +20,8 @@ public interface OsmRepository {
     List<OsmVO> findByLatLonStr(String lat, String lon);
 
     List<OsmVO> findByNameForList(String name);
+
+    List<OsmVO> findByNumberForTranslate(int start, int end);
+
+    int updateTranslateResult(int fid, String ko);
 }
